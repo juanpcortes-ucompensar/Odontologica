@@ -42,6 +42,11 @@ public class svLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Invalidar el atributo errorMessage al recibir una solicitud GET
         request.removeAttribute("errorMessage");
+        int cantUsuarios = control.traerUsuarios().size();
+        if(cantUsuarios == 0){
+            control.crearUsuarioAdmin();
+            // Crear un usuario administrador por defecto si no hay usuarios en la base de datos
+        }
         
         // Redirigir a la página de login sin error (por si alguien accede al login directamente)
         request.getRequestDispatcher("login.jsp").forward(request, response);

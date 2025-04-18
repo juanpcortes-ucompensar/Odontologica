@@ -292,6 +292,10 @@ public class ControladoraPersistencia {
 
     public Odontologo traerOdontologoPorUsuario(Usuario usuario) {
         return odontologoJpa.findOdontologoByUsuario(usuario);
+    }
+
+    public void crearUsuarioAdmin() {
+        usuarioJpa.createAdminUser();
     }    
 
 }

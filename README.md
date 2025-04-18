@@ -26,3 +26,4 @@ Proyecto de git creado para alojar el repositorio del taller de java JSP `Odonto
 
 ## Adicional:
     - Nombre de la base de datos: ondotologicadb
+    - Primer login con usuario Admin. user: admin, contraseña: admin123

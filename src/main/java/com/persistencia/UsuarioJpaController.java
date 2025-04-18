@@ -96,4 +96,21 @@ public class UsuarioJpaController {
             em.close();
         }
     }
+
+    public void createAdminUser() {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            Usuario admin = new Usuario("admin", "admin123", "admin");
+            em.persist(admin);
+            em.getTransaction().commit();
+        } catch (RuntimeException re) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw re;
+        } finally {
+            em.close();
+        }
+    }
 }
